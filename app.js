@@ -20,18 +20,25 @@ window.addEventListener('load', () => {
             })
             .then(data => {
                 console.log(data);
-                const {temp_c,feelslike_c} = data.current;
+                const {temp_c,feelslike_c, icon} = data.current;
                 const {tz_id} = data.location;
 
                 //Set DOM Elements from the API
                 temperatureDescription_FeelsLike.textContent = `Feels like: ${feelslike_c}`;
                 temperatureDegree.textContent = temp_c;
                 locationTimezone.textContent = tz_id; 
-
+                // //Set Icon
+                // setIcons(icon, document.querySelector('.icon'));
 
             });
         });
-
+        
+        // function setIcons(icon, iconID){
+        //     const skycons = new Skycons({"color": "pink"});
+        //     const currentIcon = icon.replace(/-/g, "_").toUpperCase();
+        //     skycons.play();
+        //     return skycons.set();
+        // }
 
     }
 });
